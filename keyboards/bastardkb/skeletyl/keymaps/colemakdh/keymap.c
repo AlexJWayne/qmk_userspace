@@ -17,6 +17,21 @@
 
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    JSAROW = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case JSAROW:
+        if (record->event.pressed) {
+            SEND_STRING("=>");
+        }
+        break;
+    }
+    return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [0] = LAYOUT_split_3x5_3(
@@ -36,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      KC_PERC, KC_MINS, KC_CIRC, KC_DLR,  XXXXXXX,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_GRV,  KC_AMPR, KC_EQL,  KC_COLN, XXXXXXX/*=>*/,                         XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL,
+     KC_GRV,  KC_AMPR, KC_EQL,  KC_COLN, JSAROW,                                XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      KC_EXLM, KC_PIPE, KC_AT,   KC_HASH, KC_BSLS,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
