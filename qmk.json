@@ -1,4 +1,4 @@
 {
     "userspace_version": "1.0",
-    "build_targets": [["bastardkb/skeletyl", "colemakedh"]]
+    "build_targets": [["bastardkb/skeletyl", "colemakdh"]]
 }
