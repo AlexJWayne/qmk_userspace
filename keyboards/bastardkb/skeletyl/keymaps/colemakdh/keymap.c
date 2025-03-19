@@ -18,12 +18,13 @@
 #include QMK_KEYBOARD_H
 
 enum custom_keycodes {
-    JSAROW = SAFE_RANGE,
+    JSFN = SAFE_RANGE,
+    BBB,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case JSAROW:
+    case BBB:
         if (record->event.pressed) {
             SEND_STRING("=>");
         }
@@ -51,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      KC_PERC, KC_MINS, KC_CIRC, KC_DLR,  XXXXXXX,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_GRV,  KC_AMPR, KC_EQL,  KC_COLN, JSAROW,                                XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL,
+     KC_GRV,  KC_AMPR, KC_EQL,  KC_COLN, BBB,                                   XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      KC_EXLM, KC_PIPE, KC_AT,   KC_HASH, KC_BSLS,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
