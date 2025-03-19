@@ -20,14 +20,20 @@
 enum custom_keycodes {
     MACRO_0 = SAFE_RANGE,
     JSFN,
+    MY_LPRN,
+    MY_RPRN,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case JSFN:
-        if (record->event.pressed) {
-            SEND_STRING("=>");
-        }
+        if (record->event.pressed) {SEND_STRING("=>");}
+        break;
+    case MY_LPRN:
+        if (record->event.pressed) {SEND_STRING("(");}
+        break;
+    case MY_RPRN:
+        if (record->event.pressed) {SEND_STRING(")");}
         break;
     }
     return true;
@@ -82,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                               XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                               XXXXXXX,RSFT_T(S(KC_9)),RGUI_T(S(KC_0)),KC_RALT, RCTL_T(KC_SCLN),
+     XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                               XXXXXXX,RSFT_T(MY_LPRN),RGUI_T(MY_RPRN),KC_RALT, RCTL_T(KC_SCLN),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX,S(G(KC_LBRC)),XXXXXXX,S(G(KC_RBRC)),XXXXXXX,                       XXXXXXX, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
