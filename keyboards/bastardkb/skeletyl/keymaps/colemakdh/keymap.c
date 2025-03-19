@@ -35,11 +35,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM combo_esc[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_tab[] = {KC_X, KC_C, COMBO_END};
+
+const uint16_t PROGMEM combo_bspc[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_ent[] = {KC_COMM, KC_DOT, COMBO_END};
+
+const uint16_t PROGMEM combo_cw[] = {KC_G, KC_M, COMBO_END};
+
 combo_t key_combos[] = {
     COMBO(combo_esc, KC_ESC),
     COMBO(combo_tab, KC_TAB),
+
+    COMBO(combo_bspc, KC_BSPC),
     COMBO(combo_ent, KC_ENT),
+
+    COMBO(combo_cw, CW_TOGG),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
