@@ -18,7 +18,8 @@
 #include QMK_KEYBOARD_H
 
 enum custom_keycodes {
-    JSFN = SAFE_RANGE,
+    MACRO_0 = SAFE_RANGE,
+    JSFN,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -36,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [0] = LAYOUT_split_3x5_3(
   //.--------------------------------------------.            .--------------------------------------------.
-     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                 KC_K,   KC_L,     KC_U,    KC_Y,    KC_QUOT,
+     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                 KC_J,   KC_L,     KC_U,    KC_Y,    KC_QUOT,
   //|--------+--------+--------+--------+--------|            |--------+--------+--------+--------+--------|
      LCTL_T(KC_A),LALT_T(KC_R),LGUI_T(KC_S),LSFT_T(KC_T),KC_G, KC_M,RSFT_T(KC_N),RGUI_T(KC_E),RALT_T(KC_I),RCTL_T(KC_O),
   //|--------+--------+--------+--------+--------|            |--------+--------+--------+--------+--------|
@@ -49,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [1] = LAYOUT_split_3x5_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     KC_PERC, KC_MINS, KC_CIRC, KC_DLR,  XXXXXXX,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     KC_PERC, KC_UNDS, KC_CIRC, KC_DLR,  XXXXXXX,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_GRV,  KC_AMPR, KC_EQL,  KC_COLN, JSFN,                                XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL,
+     KC_GRV,  KC_AMPR, KC_EQL,  KC_COLN, JSFN,                                  XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      KC_EXLM, KC_PIPE, KC_AT,   KC_HASH, KC_BSLS,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
