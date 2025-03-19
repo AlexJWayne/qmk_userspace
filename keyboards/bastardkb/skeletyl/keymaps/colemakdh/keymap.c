@@ -35,9 +35,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM combo_esc[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_tab[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_ent[] = {KC_COMM, KC_DOT, COMBO_END};
 combo_t key_combos[] = {
     COMBO(combo_esc, KC_ESC),
     COMBO(combo_tab, KC_TAB),
+    COMBO(combo_ent, KC_ENT),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -48,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|            |--------+--------+--------+--------+--------|
      LCTL_T(KC_A),LALT_T(KC_R),LGUI_T(KC_S),LSFT_T(KC_T),KC_G, KC_M,RSFT_T(KC_N),RGUI_T(KC_E),RALT_T(KC_I),RCTL_T(KC_O),
   //|--------+--------+--------+--------+--------|            |--------+--------+--------+--------+--------|
-     KC_Z,    KC_X,    KC_C,    HYPR_T(KC_H),KC_V,             KC_K,HYPR_T(KC_H),KC_COMM, KC_DOT,  KC_SLSH,
+     KC_Z,    KC_X,    KC_C,    HYPR_T(KC_D),KC_V,             KC_K,HYPR_T(KC_H),KC_COMM, KC_DOT,  KC_SLSH,
   //|--------+--------+--------+--------+--------|            |--------+--------+--------+--------+--------|
                 KC_ESC,LT(2, KC_SPC),LT(3,KC_TAB),             KC_ENT,LT(1,KC_BSPC),KC_DEL
                     //`--------------------------'            `--------------------------'
