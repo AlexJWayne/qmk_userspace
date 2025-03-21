@@ -20,20 +20,12 @@
 enum custom_keycodes {
     MACRO_0 = SAFE_RANGE,
     JSFN,
-    MY_LPRN,
-    MY_RPRN,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case JSFN:
         if (record->event.pressed) {SEND_STRING("=>");}
-        break;
-    case MY_LPRN:
-        if (record->event.pressed) {SEND_STRING("(");}
-        break;
-    case MY_RPRN:
-        if (record->event.pressed) {SEND_STRING(")");}
         break;
     }
     return true;
