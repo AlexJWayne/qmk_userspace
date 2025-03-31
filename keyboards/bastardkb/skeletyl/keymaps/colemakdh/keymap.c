@@ -24,9 +24,23 @@ enum custom_keycodes {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case JSFN:
-        if (record->event.pressed) {SEND_STRING("=>");}
-        break;
+        case JSFN:
+            if (record->event.pressed) {SEND_STRING("=>");}
+            return false;
+
+        case RGUI_T(KC_LPRN): // Workaround for mod tap on shifted keys.
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_LPRN);
+                return false;
+            }
+            break;
+
+        case RALT_T(KC_RPRN): // Workaround for mod tap on shifted keys.
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_RPRN);
+                return false;
+            }
+            break;
     }
     return true;
 };
@@ -80,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                               XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                               XXXXXXX, KC_RSFT,RGUI_T(LSFT(KC_9)),RALT_T(KC_RPRN),RCTL_T(KC_SCLN),
+     XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                               XXXXXXX, KC_RSFT,RGUI_T(KC_LPRN),RALT_T(KC_RPRN),RCTL_T(KC_SCLN),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX,S(G(KC_LBRC)),XXXXXXX,S(G(KC_RBRC)),XXXXXXX,                       XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
