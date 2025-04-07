@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [3] = LAYOUT_split_3x5_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, C(S(G(KC_4))), XXXXXXX,                        XXXXXXX, KC_P7, KC_P8, KC_P9, KC_PLUS,
+      QK_BOOT, XXXXXXX, XXXXXXX, C(S(G(KC_4))), QK_UNDERGLOW_TOGGLE,            XXXXXXX, KC_P7, KC_P8, KC_P9, KC_PLUS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_MPRV, KC_MNXT, KC_MPLY, KC_VOLD, KC_VOLU,                              XXXXXXX, KC_P4, KC_P5, KC_P6, KC_PDOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
