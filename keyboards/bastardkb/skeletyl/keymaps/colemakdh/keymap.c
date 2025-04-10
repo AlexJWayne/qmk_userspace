@@ -57,7 +57,7 @@ combo_t key_combos[] = {
     COMBO(combo_esc, KC_ESC),
     COMBO(combo_tab, KC_TAB),
 
-    COMBO(combo_bspc, KC_BSPC),
+    COMBO(combo_bspc, KC_DEL),
     COMBO(combo_ent, KC_ENT),
 
     COMBO(combo_cw, CW_TOGG),
